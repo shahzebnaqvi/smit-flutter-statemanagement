@@ -15,87 +15,97 @@ class HomeView extends StatelessWidget {
         builder: (context) {
           return Column(
             children: [
+              TextField(onChanged: (value) => homeControll.findProduct(value),),
               Expanded(
                 child: ListView.builder(
-                  itemCount: homeControll.product.length,
+                  itemCount: homeControll.listToShow.length,
                   itemBuilder: (context, i) {
-                    return ListTile(
-                      title: Text(homeControll.product[i]["name"]),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              // setState(() {
-                              homeControll.addRemovetoCart(i);
-                              // });
-                            },
-                            icon: Icon(
-                              homeControll.cart.contains(
-                                    homeControll.product[i],
-                                  )
-                                  ? Icons.shopping_basket
-                                  : Icons.shopping_basket_outlined,
-                            ),
-                          ),
-                          // IconButton(
-                          //   onPressed: () {
-                          //     setState(() {
-                          //       cart.contains(product[i]);
-                          //       cart.add(product[i]);
-                          //       print(cart );
-                          //       print(cart.contains(product[i]));
-                          //     });
-                          //   },
-                          //   icon: Icon(Icons.add),
-                          // ),
-                          // IconButton(
-                          //   onPressed: () {    setState(() {                            print(cart.contains(product[i]));
+                 return   Container(child: Text(homeControll.listToShow[i],style: TextStyle(color: Colors.red),));
+                  },
+                ),
+              ),
 
-                          //     cart.remove(product[i]);
-                          //       print(cart);
-                          //     });
-                          //   },
-                          //   icon: Icon(Icons.minimize_outlined),
-                          // ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: homeControll.cart.length,
-                  itemBuilder: (context, i) {
-                    return ListTile(
-                      title: Text(homeControll.cart[i]["name"]),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              // setState(() {
-                              // });
-                              homeControll.carticreasquant(i);
-                            },
-                            icon: Icon(Icons.add),
-                          ),
-                          Text(homeControll.cart[i]["quantity"].toString()),
-                          IconButton(
-                            onPressed: () {
-                              homeControll.cartdecreasquant(i);
-                              // setState(() {
-                              // });
-                            },
-                            icon: Icon(Icons.minimize_outlined),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
+              // Expanded(
+              //   child: ListView.builder(
+              //     itemCount: homeControll.product.length,
+              //     itemBuilder: (context, i) {
+              //       return ListTile(
+              //         title: Text(homeControll.product[i]["name"]),
+              //         trailing: Row(
+              //           mainAxisSize: MainAxisSize.min,
+              //           children: [
+              //             IconButton(
+              //               onPressed: () {
+              //                 // setState(() {
+              //                 homeControll.addRemovetoCart(i);
+              //                 // });
+              //               },
+              //               icon: Icon(
+              //                 homeControll.cart.contains(
+              //                       homeControll.product[i],
+              //                     )
+              //                     ? Icons.shopping_basket
+              //                     : Icons.shopping_basket_outlined,
+              //               ),
+              //             ),
+              //             // IconButton(
+              //             //   onPressed: () {
+              //             //     setState(() {
+              //             //       cart.contains(product[i]);
+              //             //       cart.add(product[i]);
+              //             //       print(cart );
+              //             //       print(cart.contains(product[i]));
+              //             //     });
+              //             //   },
+              //             //   icon: Icon(Icons.add),
+              //             // ),
+              //             // IconButton(
+              //             //   onPressed: () {    setState(() {                            print(cart.contains(product[i]));
+
+              //             //     cart.remove(product[i]);
+              //             //       print(cart);
+              //             //     });
+              //             //   },
+              //             //   icon: Icon(Icons.minimize_outlined),
+              //             // ),
+              //           ],
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // ),
+              // Expanded(
+              //   child: ListView.builder(
+              //     itemCount: homeControll.cart.length,
+              //     itemBuilder: (context, i) {
+              //       return ListTile(
+              //         title: Text(homeControll.cart[i]["name"]),
+              //         trailing: Row(
+              //           mainAxisSize: MainAxisSize.min,
+              //           children: [
+              //             IconButton(
+              //               onPressed: () {
+              //                 // setState(() {
+              //                 // });
+              //                 homeControll.carticreasquant(i);
+              //               },
+              //               icon: Icon(Icons.add),
+              //             ),
+              //             Text(homeControll.cart[i]["quantity"].toString()),
+              //             IconButton(
+              //               onPressed: () {
+              //                 homeControll.cartdecreasquant(i);
+              //                 // setState(() {
+              //                 // });
+              //               },
+              //               icon: Icon(Icons.minimize_outlined),
+              //             ),
+              //           ],
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // ),
             ],
           );
         },

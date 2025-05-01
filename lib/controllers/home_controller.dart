@@ -6,6 +6,27 @@ class HomeController extends GetxController {
   //       count++;
   //       update();
   //  }
+  List listToShow = [];
+
+  List productNames = [
+    "orange",
+    "banana",
+    "grapes",
+    "pineapple",
+    "apple",
+    "oran",
+  ];
+
+  findProduct(query) {
+    if (query.isNotEmpty)
+      listToShow =
+          productNames
+              .where((e) => e.contains(query) && e.startsWith(query))
+              .toList();
+    else
+      listToShow = [];
+    update();
+  }
 
   List product = [
     {"name": "apple", "price": 320, "id": 0},
